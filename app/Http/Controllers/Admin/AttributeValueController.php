@@ -32,7 +32,6 @@ class AttributeValueController extends Controller
         $value->value = $request->input('value');
         $value->price = $request->input('price');
         $value->save();
-
         return response()->json($value);
     }
 
@@ -43,7 +42,6 @@ class AttributeValueController extends Controller
         $attributeValue->value = $request->input('value');
         $attributeValue->price = $request->input('price');
         $attributeValue->save();
-
         return response()->json($attributeValue);
     }
 
@@ -51,7 +49,6 @@ class AttributeValueController extends Controller
     {
         $attributeValue = AttributeValue::findOrFail($request->input('id'));
         $attributeValue->delete();
-    
         return response()->json(['status' => 'success', 'message' => 'Attribute value deleted successfully.']);
     }
 

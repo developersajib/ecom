@@ -77,7 +77,7 @@ class AttributeController extends BaseController
     public function delete($id)
     {
         $attribute = $this->attributeRepository->deleteAttribute($id);
-    
+
         if (!$attribute) {
             return $this->responseRedirectBack('Error occurred while deleting attribute.', 'error', true, true);
         }
@@ -85,5 +85,7 @@ class AttributeController extends BaseController
     }
 
 
+
+    
 
 }
