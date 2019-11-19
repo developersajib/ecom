@@ -17,7 +17,7 @@ Route::group(['prefix'  =>  'admin'], function () {
 
     });
 
-    Route::group(['prefix'  =>   'categories'], function() {
+    Route::group(['prefix'  =>   'categories', 'middleware' => ['auth:admin']], function() {
         Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
         Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
         Route::post('/store', 'Admin\CategoryController@store')->name('admin.categories.store');
@@ -27,7 +27,7 @@ Route::group(['prefix'  =>  'admin'], function () {
     });
 
 
-    Route::group(['prefix'  =>   'attributes'], function() {
+    Route::group(['prefix'  =>   'attributes', 'middleware' => ['auth:admin']], function() {
         Route::get('/', 'Admin\AttributeController@index')->name('admin.attributes.index');
         Route::get('/create', 'Admin\AttributeController@create')->name('admin.attributes.create');
         Route::post('/store', 'Admin\AttributeController@store')->name('admin.attributes.store');
@@ -41,7 +41,7 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
     });
 
-    Route::group(['prefix'  =>   'brands'], function() {
+    Route::group(['prefix'  =>   'brands', 'middleware' => ['auth:admin']], function() {
         Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');
         Route::get('/create', 'Admin\BrandController@create')->name('admin.brands.create');
         Route::post('/store', 'Admin\BrandController@store')->name('admin.brands.store');
@@ -50,7 +50,7 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::get('/{id}/delete', 'Admin\BrandController@delete')->name('admin.brands.delete');
     });
 
-    Route::group(['prefix' => 'products'], function () {
+    Route::group(['prefix' => 'products', 'middleware' => ['auth:admin']], function () {
         Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
         Route::get('/create', 'Admin\ProductController@create')->name('admin.products.create');
         Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
